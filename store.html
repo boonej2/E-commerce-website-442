@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Store - Frostburg Clothing</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html">Frostburg Clothing</a>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="store.html" class="nav-link active">Store</a>
+                </li>
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a href="login.html" class="nav-link">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a href="checkout.html" class="nav-link cart-icon">
+                        Cart <span id="cart-count">0</span>
+                    </a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Store Header -->
+    <section class="store-header">
+        <div class="container">
+            <h1>Our Collection</h1>
+            <p>Premium outdoor clothing and gear for every adventure</p>
+        </div>
+    </section>
+
+    <!-- Store Filters -->
+    <section class="store-filters">
+        <div class="container">
+            <div class="filter-container">
+                <div class="search-box">
+                    <input type="text" id="search-input" placeholder="Search products...">
+                </div>
+                <div class="filter-options">
+                    <select id="category-filter">
+                        <option value="">All Categories</option>
+                        <option value="clothing">Clothing</option>
+                        <option value="shoes">Shoes</option>
+                        <option value="accessories">Accessories</option>
+                    </select>
+                    <select id="price-filter">
+                        <option value="">All Prices</option>
+                        <option value="0-50">$0 - $50</option>
+                        <option value="50-100">$50 - $100</option>
+                        <option value="100+">$100+</option>
+                    </select>
+                    <select id="sort-by">
+                        <option value="name">Sort by Name</option>
+                        <option value="price-low">Price: Low to High</option>
+                        <option value="price-high">Price: High to Low</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Grid -->
+    <section class="featured-products">
+        <div class="container">
+            <div class="products-grid" id="products-grid">
+                <!-- Products will be dynamically loaded -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Frostburg Clothing</h3>
+                    <p>Premium outdoor clothing and casual wear for the modern adventurer.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="store.html">Store</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="login.html">Login</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Shipping Info</a></li>
+                        <li><a href="#">Size Guide</a></li>
+                        <li><a href="#">FAQs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>Email: support@frostburgclothing.com</p>
+                    <p>Phone: (301) 420-6969</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Frostburg Clothing. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/cart.js"></script>
+    <script>
+        // Product data
+        const products = [
+            { id: 1, name: "Mountain Fleece Jacket", price: 89.99, category: "clothing", image: "Product 1" },
+            { id: 2, name: "Waterproof Hiking Pants", price: 79.99, category: "clothing", image: "Product 2" },
+            { id: 3, name: "Trail Hiking Boots", price: 149.99, category: "shoes", image: "Product 3" },
+            { id: 4, name: "Performance Base Layer", price: 39.99, category: "clothing", image: "Product 4" },
+            { id: 5, name: "All-Terrain Running Shoes", price: 119.99, category: "shoes", image: "Product 5" },
+            { id: 6, name: "Wool Beanie", price: 29.99, category: "accessories", image: "Product 6" },
+            { id: 7, name: "Waterproof Gloves", price: 44.99, category: "accessories", image: "Product 7" },
+            { id: 8, name: "Insulated Hoodie", price: 69.99, category: "clothing", image: "Product 8" },
+            { id: 9, name: "Polarized Sunglasses", price: 49.99, category: "accessories", image: "Product 9" },
+            { id: 10, name: "Hiking Socks (3-Pack)", price: 24.99, category: "accessories", image: "Product 10" },
+            { id: 11, name: "Softshell Jacket", price: 129.99, category: "clothing", image: "Product 11" },
+            { id: 12, name: "35L Hiking Backpack", price: 99.99, category: "accessories", image: "Product 12" }
+        ];
+
+        // Mobile menu toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Render products
+        function renderProducts(productsToRender) {
+            const grid = document.getElementById('products-grid');
+            grid.innerHTML = productsToRender.map(product => `
+                <div class="product-card">
+                    <a href="product.html?id=${product.id}" class="product-link">
+                        <div class="product-image">${product.image}</div>
+                        <h3 class="product-name">${product.name}</h3>
+                        <p class="product-price">$${product.price}</p>
+                    </a>
+                    <button class="btn btn-outline add-to-cart" 
+                            data-id="${product.id}" 
+                            data-name="${product.name}" 
+                            data-price="${product.price}">
+                        Add to Cart
+                    </button>
+                </div>
+            `).join('');
+
+            // Add event listeners to new buttons
+            document.querySelectorAll('.add-to-cart').forEach(button => {
+                button.addEventListener('click', function() {
+                    const id = this.dataset.id;
+                    const name = this.dataset.name;
+                    const price = parseFloat(this.dataset.price);
+                    
+                    addToCart(id, name, price);
+                    updateCartCount();
+                    
+                    // Show feedback
+                    this.textContent = 'Added!';
+                    setTimeout(() => {
+                        this.textContent = 'Add to Cart';
+                    }, 2000);
+                });
+            });
+        }
+
+        // Filter and sort products
+        function filterAndSortProducts() {
+            const searchTerm = document.getElementById('search-input').value.toLowerCase();
+            const category = document.getElementById('category-filter').value;
+            const priceRange = document.getElementById('price-filter').value;
+            const sortBy = document.getElementById('sort-by').value;
+
+            let filteredProducts = products.filter(product => {
+                // Search filter
+                const matchesSearch = product.name.toLowerCase().includes(searchTerm);
+                
+                // Category filter
+                const matchesCategory = !category || product.category === category;
+                
+                // Price filter
+                let matchesPrice = true;
+                if (priceRange === '0-50') {
+                    matchesPrice = product.price <= 50;
+                } else if (priceRange === '50-100') {
+                    matchesPrice = product.price > 50 && product.price <= 100;
+                } else if (priceRange === '100+') {
+                    matchesPrice = product.price > 100;
+                }
+                
+                return matchesSearch && matchesCategory && matchesPrice;
+            });
+
+            // Sort products
+            filteredProducts.sort((a, b) => {
+                switch (sortBy) {
+                    case 'price-low':
+                        return a.price - b.price;
+                    case 'price-high':
+                        return b.price - a.price;
+                    default:
+                        return a.name.localeCompare(b.name);
+                }
+            });
+
+            renderProducts(filteredProducts);
+        }
+
+        // Initialize event listeners for filters
+        document.getElementById('search-input').addEventListener('input', filterAndSortProducts);
+        document.getElementById('category-filter').addEventListener('change', filterAndSortProducts);
+        document.getElementById('price-filter').addEventListener('change', filterAndSortProducts);
+        document.getElementById('sort-by').addEventListener('change', filterAndSortProducts);
+
+        // Initial render
+        renderProducts(products);
+        updateCartCount();
+    </script>
+</body>
+</html>
