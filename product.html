@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details - Frostburg Clothing</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html">Frostburg Clothing</a>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+
+                </li>
+                <li class="nav-item">
+                    <a href="store.html" class="nav-link">Store</a>
+                </li>
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a href="checkout.html" class="nav-link cart-icon">
+                        Cart <span id="cart-count">0</span>
+                    </a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Product Detail Section -->
+    <section class="product-detail">
+        <div class="container">
+            <div class="product-detail-grid" id="product-detail-content">
+                <!-- Product details will be dynamically loaded -->
+                <div class="loading-message">
+                    <h3>Loading product details...</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Products -->
+    <section class="featured-products">
+        <div class="container">
+            <h2 class="section-title">Related Products</h2>
+            <div class="products-grid" id="related-products">
+                <!-- Related products will be dynamically loaded -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Frostburg Clothing</h3>
+                    <p>Premium outdoor clothing and casual wear for the modern adventurer.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="store.html">Store</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Shipping Info</a></li>
+                        <li><a href="#">Size Guide</a></li>
+                        <li><a href="#">FAQs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>Email: support@frostburgclothing.com</p>
+                    <p>Phone: (301) 420-6969</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Frostburg Clothing. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/cart.js"></script>
+    <script>
+        // Product data with detailed information
+        const products = [
+            { 
+                id: 1, 
+                name: "Mountain Fleece Jacket", 
+                price: 89.99, 
+                category: "clothing", 
+                image: "Product 1",
+                description: "Stay warm and comfortable in our premium Mountain Fleece Jacket. Made from high-quality fleece material that provides excellent insulation while remaining breathable. Perfect for hiking, camping, or casual everyday wear.",
+                features: [
+                    "Premium fleece material",
+                    "Moisture-wicking technology",
+                    "Zippered pockets",
+                    "Elastic cuffs for fit",
+                    "Available in multiple colors"
+                ],
+                sizes: ["XS", "S", "M", "L", "XL", "XXL"],
+                colors: ["Navy Blue", "Forest Green", "Charcoal Gray", "Burgundy"]
+            },
+            { 
+                id: 2, 
+                name: "Waterproof Hiking Pants", 
+                price: 79.99, 
+                category: "clothing", 
+                image: "Product 2",
+                description: "Conquer any trail with our Waterproof Hiking Pants. Designed with advanced waterproof technology and reinforced knees, these pants are built to withstand the elements while providing maximum comfort and mobility.",
+                features: [
+                    "100% waterproof construction",
+                    "Reinforced knees and seat",
+                    "Multiple storage pockets",
+                    "Adjustable waistband",
+                    "Lightweight and packable"
+                ],
+                sizes: ["28", "30", "32", "34", "36", "38"],
+                colors: ["Khaki", "Olive Green", "Stone Gray", "Navy Blue"]
+            },
+            { 
+                id: 3, 
+                name: "Trail Hiking Boots", 
+                price: 149.99, 
+                category: "shoes", 
+                image: "Product 3",
+                description: "Experience superior traction and support with our Trail Hiking Boots. Featuring advanced grip technology and waterproof construction, these boots are designed for serious hikers who demand performance and durability.",
+                features: [
+                    "Vibram® outsole for superior grip",
+                    "Waterproof leather construction",
+                    "Ankle support technology",
+                    "Cushioned insole for comfort",
+                    "Breathable lining"
+                ],
+                sizes: ["7", "8", "9", "10", "11", "12", "13"],
+                colors: ["Brown Leather", "Black", "Dark Brown"]
+            },
+            { 
+                id: 4, 
+                name: "Performance Base Layer", 
+                price: 39.99, 
+                category: "clothing", 
+                image: "Product 4",
+                description: "Our Performance Base Layer is engineered to keep you dry and comfortable during intense activities. Made from merino wool blend that regulates temperature and wicks moisture away from your skin.",
+                features: [
+                    "Merino wool blend",
+                    "Moisture-wicking technology",
+                    "Odor-resistant",
+                    "Seamless construction",
+                    "Four-way stretch"
+                ],
+                sizes: ["XS", "S", "M", "L", "XL", "XXL"],
+                colors: ["Black", "White", "Navy", "Charcoal"]
+            },
+            { 
+                id: 5, 
+                name: "All-Terrain Running Shoes", 
+                price: 119.99, 
+                category: "shoes", 
+                image: "Product 5",
+                description: "Transition seamlessly from road to trail with our All-Terrain Running Shoes. Featuring responsive cushioning and aggressive traction patterns, these shoes are perfect for runners who explore diverse landscapes.",
+                features: [
+                    "Responsive foam cushioning",
+                    "Aggressive trail-ready outsole",
+                    "Breathable mesh upper",
+                    "Rock protection plate",
+                    "Secure lace system"
+                ],
+                sizes: ["7", "8", "9", "10", "11", "12", "13"],
+                colors: ["Blue/Orange", "Black/Green", "Gray/Red"]
+            },
+            { 
+                id: 6, 
+                name: "Wool Beanie", 
+                price: 29.99, 
+                category: "accessories", 
+                image: "Product 6",
+                description: "Keep warm in style with our premium Wool Beanie. Made from 100% merino wool, this beanie provides excellent warmth without bulk and is perfect for cold weather adventures.",
+                features: [
+                    "100% merino wool",
+                    "Breathable and warm",
+                    "One size fits all",
+                    "Soft and non-itchy",
+                    "Machine washable"
+                ],
+                sizes: ["One Size"],
+                colors: ["Charcoal", "Navy", "Forest Green", "Burgundy", "Cream"]
+            },
+            { 
+                id: 7, 
+                name: "Waterproof Gloves", 
+                price: 44.99, 
+                category: "accessories", 
+                image: "Product 7",
+                description: "Our Waterproof Gloves combine protection and dexterity, featuring touchscreen-compatible fingertips and waterproof construction to keep your hands dry and functional in any weather.",
+                features: [
+                    "Waterproof and windproof",
+                    "Touchscreen compatible",
+                    "Insulated for warmth",
+                    "Adjustable wrist strap",
+                    "Reinforced palms"
+                ],
+                sizes: ["S", "M", "L", "XL"],
+                colors: ["Black", "Gray", "Navy", "Orange"]
+            },
+            { 
+                id: 8, 
+                name: "Insulated Hoodie", 
+                price: 69.99, 
+                category: "clothing", 
+                image: "Product 8",
+                description: "The perfect mid-layer for cold weather, our Insulated Hoodie provides lightweight warmth without restricting movement. Features a comfortable fit and practical storage options.",
+                features: [
+                    "Synthetic insulation",
+                    "Full-zip design",
+                    "Kangaroo pocket",
+                    "Adjustable hood",
+                    "Elastic cuffs and hem"
+                ],
+                sizes: ["XS", "S", "M", "L", "XL", "XXL"],
+                colors: ["Black", "Navy", "Olive", "Charcoal"]
+            },
+            { 
+                id: 9, 
+                name: "Polarized Sunglasses", 
+                price: 49.99, 
+                category: "accessories", 
+                image: "Product 9",
+                description: "Protect your eyes in style with our Polarized Sunglasses. Featuring UV400 protection and polarized lenses that reduce glare, making them perfect for outdoor activities.",
+                features: [
+                    "Polarized lenses",
+                    "UV400 protection",
+                    "Lightweight frame",
+                    "Scratch-resistant coating",
+                    "Includes protective case"
+                ],
+                sizes: ["One Size"],
+                colors: ["Black Frame", "Tortoise Frame", "Blue Frame", "Silver Frame"]
+            },
+            { 
+                id: 10, 
+                name: "Hiking Socks (3-Pack)", 
+                price: 24.99, 
+                category: "accessories", 
+                image: "Product 10",
+                description: "Keep your feet comfortable and blister-free with our premium Hiking Socks. Made from merino wool blend with strategic cushioning in high-impact areas.",
+                features: [
+                    "Merino wool blend",
+                    "Strategic cushioning",
+                    "Moisture-wicking",
+                    "Arch support",
+                    "Seamless toe construction"
+                ],
+                sizes: ["S (6-8)", "M (9-11)", "L (12-14)"],
+                colors: ["Gray/Blue", "Black/Gray", "Navy/Orange"]
+            },
+            { 
+                id: 11, 
+                name: "Softshell Jacket", 
+                price: 129.99, 
+                category: "clothing", 
+                image: "Product 11",
+                description: "Our versatile Softshell Jacket provides wind and water resistance while maintaining breathability. Perfect for active pursuits in changing weather conditions.",
+                features: [
+                    "Wind and water resistant",
+                    "Breathable fabric",
+                    "Multiple pockets",
+                    "Adjustable cuffs",
+                    "Durable water repellent finish"
+                ],
+                sizes: ["XS", "S", "M", "L", "XL", "XXL"],
+                colors: ["Black", "Navy", "Olive", "Red", "Gray"]
+            },
+            { 
+                id: 12, 
+                name: "35L Hiking Backpack", 
+                price: 99.99, 
+                category: "accessories", 
+                image: "Product 12",
+                description: "Carry your gear comfortably with our 35L Hiking Backpack. Features multiple compartments, hydration compatibility, and ergonomic shoulder straps for all-day comfort.",
+                features: [
+                    "35-liter capacity",
+                    "Hydration system compatible",
+                    "Multiple access points",
+                    "Padded shoulder straps",
+                    "Rain cover included"
+                ],
+                sizes: ["One Size"],
+                colors: ["Black", "Forest Green", "Blue", "Gray"]
+            }
+        ];
+
+        // Mobile menu toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Get product ID from URL parameters
+        function getProductIdFromUrl() {
+            const urlParams = new URLSearchParams(window.location.search);
+            return parseInt(urlParams.get('id'));
+        }
+
+        // Load product details
+        function loadProductDetails() {
+            const productId = getProductIdFromUrl();
+            const product = products.find(p => p.id === productId);
+            const container = document.getElementById('product-detail-content');
+
+            if (!product) {
+                container.innerHTML = `
+                    <div class="product-not-found">
+                        <h2>Product Not Found</h2>
+                        <p>The product you're looking for doesn't exist.</p>
+                        <a href="store.html" class="btn btn-primary">Back to Store</a>
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = `
+                <div class="product-images">
+                    <div class="main-product-image">
+                        <div class="product-image-large">${product.image}</div>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <nav class="breadcrumb">
+                        <a href="index.html">Home</a> &gt; 
+                        <a href="store.html">Store</a> &gt; 
+                        <span>${product.name}</span>
+                    </nav>
+                    <h1 class="product-title">${product.name}</h1>
+                    <p class="product-price">$${product.price}</p>
+                    <div class="product-description">
+                        <p>${product.description}</p>
+                    </div>
+                    
+                    <div class="product-features">
+                        <h3>Features</h3>
+                        <ul>
+                            ${product.features.map(feature => `<li>${feature}</li>`).join('')}
+                        </ul>
+                    </div>
+
+                    <div class="product-options">
+                        <div class="option-group">
+                            <label for="size-select">Size:</label>
+                            <select id="size-select" class="option-select">
+                                ${product.sizes.map(size => `<option value="${size}">${size}</option>`).join('')}
+                            </select>
+                        </div>
+                        <div class="option-group">
+                            <label for="color-select">Color:</label>
+                            <select id="color-select" class="option-select">
+                                ${product.colors.map(color => `<option value="${color}">${color}</option>`).join('')}
+                            </select>
+                        </div>
+                        <div class="option-group">
+                            <label for="quantity">Quantity:</label>
+                            <input type="number" id="quantity" value="1" min="1" max="10" class="quantity-input">
+                        </div>
+                    </div>
+
+                    <div class="product-actions">
+                        <button class="btn btn-primary add-to-cart-btn" 
+                                data-id="${product.id}" 
+                                data-name="${product.name}" 
+                                data-price="${product.price}">
+                            Add to Cart
+                        </button>
+                    </div>
+
+                    <div class="product-meta">
+                        <div class="meta-item">
+                            <span class="meta-label">Category:</span>
+                            <span class="meta-value">${product.category.charAt(0).toUpperCase() + product.category.slice(1)}</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label">SKU:</span>
+                            <span class="meta-value">FC-${product.id.toString().padStart(4, '0')}</span>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            // Add event listener to add to cart button
+            const addToCartBtn = document.querySelector('.add-to-cart-btn');
+            addToCartBtn.addEventListener('click', function() {
+                const id = this.dataset.id;
+                const name = this.dataset.name;
+                const price = parseFloat(this.dataset.price);
+                const quantity = parseInt(document.getElementById('quantity').value);
+                const size = document.getElementById('size-select').value;
+                const color = document.getElementById('color-select').value;
+                
+                // Add item to cart with selected options
+                addToCart(id, name, price, quantity, { size, color });
+                updateCartCount();
+                
+                // Show feedback
+                this.textContent = 'Added to Cart!';
+                setTimeout(() => {
+                    this.textContent = 'Add to Cart';
+                }, 2000);
+            });
+
+            // Load related products
+            loadRelatedProducts(product);
+        }
+
+        // Load related products (same category)
+        function loadRelatedProducts(currentProduct) {
+            const relatedProducts = products
+                .filter(p => p.category === currentProduct.category && p.id !== currentProduct.id)
+                .slice(0, 4); // Show up to 4 related products
+
+            const container = document.getElementById('related-products');
+            
+            if (relatedProducts.length === 0) {
+                container.innerHTML = '<p>No related products found.</p>';
+                return;
+            }
+
+            container.innerHTML = relatedProducts.map(product => `
+                <div class="product-card">
+                    <a href="product.html?id=${product.id}" class="product-link">
+                        <div class="product-image">${product.image}</div>
+                        <h3 class="product-name">${product.name}</h3>
+                        <p class="product-price">$${product.price}</p>
+                    </a>
+                    <button class="btn btn-outline add-to-cart" 
+                            data-id="${product.id}" 
+                            data-name="${product.name}" 
+                            data-price="${product.price}">
+                        Add to Cart
+                    </button>
+                </div>
+            `).join('');
+
+            // Add event listeners to related product add-to-cart buttons
+            document.querySelectorAll('#related-products .add-to-cart').forEach(button => {
+                button.addEventListener('click', function() {
+                    const id = this.dataset.id;
+                    const name = this.dataset.name;
+                    const price = parseFloat(this.dataset.price);
+                    
+                    addToCart(id, name, price);
+                    updateCartCount();
+                    
+                    // Show feedback
+                    this.textContent = 'Added!';
+                    setTimeout(() => {
+                        this.textContent = 'Add to Cart';
+                    }, 2000);
+                });
+            });
+        }
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            loadProductDetails();
+            updateCartCount();
+        });
+    </script>
+</body>
+</html>
+                    <

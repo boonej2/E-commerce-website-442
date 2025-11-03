@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frostburg Clothing - Premium Outdoor & Casual Wear</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html">Frostburg Clothing</a>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link active">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="store.html" class="nav-link">Store</a>
+                </li>
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a href="login.html" class="nav-link">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a href="checkout.html" class="nav-link cart-icon">
+                        Cart <span id="cart-count">0</span>
+                    </a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Embrace the Outdoors</h1>
+            <p class="hero-subtitle">Premium outdoor clothing and casual wear designed for comfort, durability, and style in any weather.</p>
+            <div class="hero-buttons">
+                <a href="store.html" class="btn btn-primary">Shop Now</a>
+                <a href="about.html" class="btn btn-secondary">Learn More</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <div class="placeholder-image">Featured Product Image</div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="featured-products">
+        <div class="container">
+            <h2 class="section-title">Featured Products</h2>
+            <div class="products-grid">
+                <div class="product-card">
+                    <a href="product.html?id=1" class="product-link">
+                        <div class="product-image">Product 1</div>
+                        <h3 class="product-name">Mountain Fleece Jacket</h3>
+                        <p class="product-price">$89.99</p>
+                    </a>
+                    <button class="btn btn-outline add-to-cart" data-id="1" data-name="Mountain Fleece Jacket" data-price="89.99">Add to Cart</button>
+                </div>
+                <div class="product-card">
+                    <a href="product.html?id=2" class="product-link">
+                        <div class="product-image">Product 2</div>
+                        <h3 class="product-name">Waterproof Hiking Pants</h3>
+                        <p class="product-price">$79.99</p>
+                    </a>
+                    <button class="btn btn-outline add-to-cart" data-id="2" data-name="Waterproof Hiking Pants" data-price="79.99">Add to Cart</button>
+                </div>
+                <div class="product-card">
+                    <a href="product.html?id=3" class="product-link">
+                        <div class="product-image">Product 3</div>
+                        <h3 class="product-name">Trail Hiking Boots</h3>
+                        <p class="product-price">$149.99</p>
+                    </a>
+                    <button class="btn btn-outline add-to-cart" data-id="3" data-name="Trail Hiking Boots" data-price="149.99">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="features-grid">
+                <div class="feature">
+                    <div class="feature-icon">🚚</div>
+                    <h3>Free Shipping</h3>
+                    <p>Free shipping on all orders over $50</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">↩️</div>
+                    <h3>Easy Returns</h3>
+                    <p>30-day return policy for all items</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Secure Payment</h3>
+                    <p>Your payment information is safe with us</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">📞</div>
+                    <h3>24/7 Support</h3>
+                    <p>Get help whenever you need it</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Frostburg Clothing</h3>
+                    <p>Premium outdoor clothing and casual wear for the modern adventurer.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="store.html">Store</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Shipping Info</a></li>
+                        <li><a href="#">Size Guide</a></li>
+                        <li><a href="#">FAQs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>Email: support@frostburgclothing.com</p>
+                    <p>Phone: (301) 420-6969</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Frostburg Clothing. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/cart.js"></script>
+    <script>
+        // Mobile menu toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Add to cart functionality
+        document.querySelectorAll('.add-to-cart').forEach(button => {
+            button.addEventListener('click', function() {
+                const id = this.dataset.id;
+                const name = this.dataset.name;
+                const price = parseFloat(this.dataset.price);
+                
+                addToCart(id, name, price);
+                updateCartCount();
+                
+                // Show feedback
+                this.textContent = 'Added!';
+                setTimeout(() => {
+                    this.textContent = 'Add to Cart';
+                }, 2000);
+            });
+        });
+
+        // Initialize cart count
+        updateCartCount();
+    </script>
+</body>
+</html>
